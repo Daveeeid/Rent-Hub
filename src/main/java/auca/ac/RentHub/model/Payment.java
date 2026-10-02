@@ -11,12 +11,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table (name = "payments")
 public class Payment {
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private String paymentId;
+    private int paymentId;
     private double amount;
     private LocalDate paymentDate;
     private LocalDate dueDate;
@@ -32,11 +34,11 @@ public class Payment {
     public Payment() {
     }
 
-    public String getPaymentId() {
+    public int getPaymentId() {
         return paymentId;
     }
 
-    public void setPaymentId(String paymentId) {
+    public void setPaymentId(int paymentId) {
         this.paymentId = paymentId;
     }
 

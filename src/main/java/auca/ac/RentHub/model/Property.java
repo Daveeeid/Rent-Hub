@@ -3,6 +3,7 @@ package auca.ac.RentHub.model;
 import java.util.List;
 
 import auca.ac.RentHub.model.enums.AvailabilityStatus;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -14,17 +15,21 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table (name = "properties")
 public class Property {
 
     @Id 
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private String id;
+    private int id;
     private String title;
     private String location;
     private float price;
+    @Column (name = "number_of_rooms")
     private int numberOfRooms;
+    @Column (name = "property_type")
     private String propertyType;
     private String description;
 
@@ -50,11 +55,11 @@ public class Property {
 
     public Property(){}
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

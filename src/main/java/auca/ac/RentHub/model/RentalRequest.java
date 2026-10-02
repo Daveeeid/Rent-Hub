@@ -12,11 +12,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table (name = "rental_requests")
 public class RentalRequest {
     @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
     private LocalDate requestDate;
 
     @Enumerated (EnumType.STRING)
@@ -37,10 +39,10 @@ public class RentalRequest {
     public RentalRequest() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     public LocalDate getRequestDate() {

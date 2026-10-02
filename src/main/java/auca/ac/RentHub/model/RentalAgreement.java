@@ -13,12 +13,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table (name = "rental_agreements")
 public class RentalAgreement {
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-        private String id;
+        private int id;
         private LocalDate startDate;
         private LocalDate endDate;
         private float monthlyRent;
@@ -36,10 +38,10 @@ public class RentalAgreement {
         public RentalAgreement() {
         }
 
-        public String getId() {
+        public int getId() {
             return id;
         }
-        public void setId(String id) {
+        public void setId(int id) {
             this.id = id;
         }
         public LocalDate getStartDate() {

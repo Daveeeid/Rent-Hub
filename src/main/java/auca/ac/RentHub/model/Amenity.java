@@ -2,18 +2,22 @@ package auca.ac.RentHub.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table (name = "amenities")
 public class Amenity {
 
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
+    @Column (name = "amenity_name")
     private String name;
 
     @ManyToMany (mappedBy = "amenities")
@@ -22,11 +26,11 @@ public class Amenity {
     public Amenity() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
