@@ -1,4 +1,4 @@
-package auca.ac.RentHub.model;
+package auca.ac.RentHub.model.enums;
 
 /**
  * AgreementStatus
