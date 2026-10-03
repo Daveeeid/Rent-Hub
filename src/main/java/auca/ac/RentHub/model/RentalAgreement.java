@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import auca.ac.RentHub.model.enums.AgreementStatus;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -18,14 +19,16 @@ import jakarta.persistence.Table;
 @Entity
 @Table (name = "rental_agreements")
 public class RentalAgreement {
-    @Id 
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+        @Id 
+        @GeneratedValue (strategy = GenerationType.IDENTITY)
+        @Column (name = "agreement_id", nullable = false)
         private int id;
         private LocalDate startDate;
         private LocalDate endDate;
         private float monthlyRent;
 
         @Enumerated (EnumType.STRING)
+        @Column (nullable = false)
         private AgreementStatus status;
 
         @OneToOne 

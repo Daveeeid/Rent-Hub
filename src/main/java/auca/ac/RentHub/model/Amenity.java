@@ -17,7 +17,7 @@ public class Amenity {
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
-    @Column (name = "amenity_name")
+    @Column (name = "amenity_name", nullable = false)
     private String name;
 
     @ManyToMany (mappedBy = "amenities")
@@ -41,4 +41,13 @@ public class Amenity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
+    }
+    
 }

@@ -3,6 +3,7 @@ package auca.ac.RentHub.model;
 import java.time.LocalDate;
 
 import auca.ac.RentHub.model.enums.PaymentStatus;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -24,11 +25,12 @@ public class Payment {
     private LocalDate dueDate;
 
     @Enumerated (EnumType.STRING)
+    @Column 
     private PaymentStatus status;
-    private float lateFee;
+    private double lateFee;
 
     @ManyToOne 
-    @JoinColumn (name = "agreement_id")
+    @JoinColumn (name = "agreement_id", unique = true)
     private RentalAgreement rentalAgreement;
 
     public Payment() {
@@ -74,12 +76,20 @@ public class Payment {
         this.status = status;
     }
 
-    public float getLateFee() {
+    public double getLateFee() {
         return lateFee;
     }
 
-    public void setLateFee(float lateFee) {
+    public void setLateFee(double lateFee) {
         this.lateFee = lateFee;
+    }
+
+    public RentalAgreement getRentalAgreement() {
+        return rentalAgreement;
+    }
+
+    public void setRentalAgreement(RentalAgreement rentalAgreement) {
+        this.rentalAgreement = rentalAgreement;
     }
 
     
