@@ -23,16 +23,19 @@ public class RentalAgreement {
         @GeneratedValue (strategy = GenerationType.IDENTITY)
         @Column (name = "agreement_id", nullable = false)
         private int id;
+        @Column (name = "start_date", nullable = false)
         private LocalDate startDate;
+        @Column (name = "end_date", nullable = false)
         private LocalDate endDate;
+        @Column (name = "monthly_rent", nullable = false)
         private float monthlyRent;
 
         @Enumerated (EnumType.STRING)
-        @Column (nullable = false)
+        @Column (name = "status", nullable = false)
         private AgreementStatus status;
 
         @OneToOne 
-        @JoinColumn (name = "request_id")
+        @JoinColumn (name = "request_id", unique = true)
         private RentalRequest rentalRequest;
 
         @OneToMany (mappedBy = "rentalAgreement")
@@ -72,5 +75,22 @@ public class RentalAgreement {
             this.status = status;
         }
 
+        public RentalRequest getRentalRequest() {
+            return rentalRequest;
+        }
+
+        public void setRentalRequest(RentalRequest rentalRequest) {
+            this.rentalRequest = rentalRequest;
+        }
+
+        public List<Payment> getPayments() {
+            return payments;
+        }
+
+        public void setPayments(List<Payment> payments) {
+            this.payments = payments;
+        }
+
+        
         
 }

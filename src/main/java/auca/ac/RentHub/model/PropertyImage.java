@@ -34,6 +34,12 @@ public class PropertyImage {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-
+    public Property getProperty() {
+        return property;
+    }
+    public void setProperty(Property property) {
+        this.property = property;
+    }
+    
     
 }

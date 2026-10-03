@@ -22,15 +22,20 @@ import jakarta.persistence.Table;
 public class Property {
 
     @Id 
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name = "property_id")
     private int id;
+    @Column (name = "title", nullable = false)
     private String title;
+    @Column (name = "location", nullable = false)
     private String location;
+    @Column (name = "price", nullable = false)
     private float price;
-    @Column (name = "number_of_rooms")
+    @Column (name = "number_of_rooms", nullable = false)
     private int numberOfRooms;
     @Column (name = "property_type")
     private String propertyType;
+    @Column (name = "description")
     private String description;
 
     @Enumerated(EnumType.STRING)
@@ -118,6 +123,39 @@ public class Property {
     public void setStatus(AvailabilityStatus status) {
         this.status = status;
     }
+
+    public List<Amenity> getAmenities() {
+        return amenities;
+    }
+
+    public void setAmenities(List<Amenity> amenities) {
+        this.amenities = amenities;
+    }
+
+    public User getLandlord() {
+        return landlord;
+    }
+
+    public void setLandlord(User landlord) {
+        this.landlord = landlord;
+    }
+
+    public List<RentalRequest> getRentalRequests() {
+        return rentalRequests;
+    }
+
+    public void setRentalRequests(List<RentalRequest> rentalRequests) {
+        this.rentalRequests = rentalRequests;
+    }
+
+    public List<PropertyImage> getPropertyImages() {
+        return propertyImages;
+    }
+
+    public void setPropertyImages(List<PropertyImage> propertyImages) {
+        this.propertyImages = propertyImages;
+    }
+    
 
     
 }

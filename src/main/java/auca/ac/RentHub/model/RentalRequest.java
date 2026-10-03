@@ -3,6 +3,7 @@ package auca.ac.RentHub.model;
 import java.time.LocalDate;
 
 import auca.ac.RentHub.model.enums.RequestStatus;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,10 +20,12 @@ import jakarta.persistence.Table;
 public class RentalRequest {
     @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    @Column (name = "request_date", nullable = false)
     private LocalDate requestDate;
 
     @Enumerated (EnumType.STRING)
     private RequestStatus status;
+    @Column (name = "message", length = 255)
     private String message;
 
     @ManyToOne
@@ -64,5 +67,30 @@ public class RentalRequest {
         this.message = message;
     }
 
+    public User getRenter() {
+        return renter;
+    }
+
+    public void setRenter(User renter) {
+        this.renter = renter;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
+    }
+
+    public RentalAgreement getRentalAgreement() {
+        return rentalAgreement;
+    }
+
+    public void setRentalAgreement(RentalAgreement rentalAgreement) {
+        this.rentalAgreement = rentalAgreement;
+    }
+
+    
     
 }

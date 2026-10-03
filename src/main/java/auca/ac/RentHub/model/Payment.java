@@ -20,17 +20,21 @@ public class Payment {
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int paymentId;
+    @Column (name = "amount", nullable = false)
     private double amount;
+    @Column (name = "payment_date", nullable = false)
     private LocalDate paymentDate;
+    @Column (name = "due_date", nullable = false)
     private LocalDate dueDate;
 
     @Enumerated (EnumType.STRING)
-    @Column 
+    @Column (name = "status", nullable = false)
     private PaymentStatus status;
+    @Column (name = "late_fee", nullable = false)
     private double lateFee;
 
     @ManyToOne 
-    @JoinColumn (name = "agreement_id", unique = true)
+    @JoinColumn (name = "agreement_id")
     private RentalAgreement rentalAgreement;
 
     public Payment() {

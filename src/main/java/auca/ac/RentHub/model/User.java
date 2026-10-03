@@ -24,9 +24,9 @@ public class User {
     private String name;
     @Column (name = "phone_number")
     private String phoneNumber;
-    @Column (name = "email")
+    @Column (name = "email", unique = true)
     private String email;
-
+    private String password;
     @Enumerated(EnumType.STRING)
     @Column (name = "role")
     private UserRole role;
@@ -67,6 +67,7 @@ public class User {
         return email;
     }
 
+    
     public void setEmail(String email) {
         this.email = email;
     }
@@ -77,6 +78,30 @@ public class User {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    public List<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
+    }
+
+    public List<RentalRequest> getRentalRequests() {
+        return rentalRequests;
+    }
+
+    public void setRentalRequests(List<RentalRequest> rentalRequests) {
+        this.rentalRequests = rentalRequests;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
 }
