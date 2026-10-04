@@ -30,7 +30,7 @@ public class Property {
     @Column (name = "location", nullable = false)
     private String location;
     @Column (name = "price", nullable = false)
-    private float price;
+    private double price;
     @Column (name = "number_of_rooms", nullable = false)
     private int numberOfRooms;
     @Column (name = "property_type")
@@ -84,11 +84,11 @@ public class Property {
         this.location = location;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

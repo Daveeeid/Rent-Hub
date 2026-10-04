@@ -22,7 +22,7 @@ public class Payment {
     private int paymentId;
     @Column (name = "amount", nullable = false)
     private double amount;
-    @Column (name = "payment_date", nullable = false)
+    @Column (name = "payment_date")
     private LocalDate paymentDate;
     @Column (name = "due_date", nullable = false)
     private LocalDate dueDate;

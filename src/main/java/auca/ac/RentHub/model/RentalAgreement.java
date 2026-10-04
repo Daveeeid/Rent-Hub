@@ -28,7 +28,7 @@ public class RentalAgreement {
         @Column (name = "end_date", nullable = false)
         private LocalDate endDate;
         @Column (name = "monthly_rent", nullable = false)
-        private float monthlyRent;
+        private double monthlyRent;
 
         @Enumerated (EnumType.STRING)
         @Column (name = "status", nullable = false)
@@ -62,10 +62,10 @@ public class RentalAgreement {
         public void setEndDate(LocalDate endDate) {
             this.endDate = endDate;
         }
-        public float getMonthlyRent() {
+        public double getMonthlyRent() {
             return monthlyRent;
         }
-        public void setMonthlyRent(float monthlyRent) {
+        public void setMonthlyRent(double monthlyRent) {
             this.monthlyRent = monthlyRent;
         }
         public AgreementStatus getStatus() {
